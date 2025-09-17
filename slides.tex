@@ -26,7 +26,7 @@
 \author{Alex Hayes}
 \date{September 22, 2025 @ Stanford Metrics Lunch}
 
-% \institute{Department of Statistics\\University of Wisconsin-Madison}
+\institute{Joint work with Keith Levin at UW-Madison}
 
 \begin{document}
 
@@ -38,11 +38,11 @@
     
     1. Shameless introduction
     
-    2. A problem with the linear-in-means model
+    2. The linear-in-means model
     
-    3. Connections to ongoing work in the contagion literature
+    3. Dependence as a solution
     
-    4. A hint at a solution
+    4. Why are folks parametric in 2025?
     
     5. Follow-up work (if time)
     
@@ -121,23 +121,7 @@
     \end{columns}
 \end{frame}
 
-\section{A problem with the linear-in-means model}
-
-\begin{frame}{This is joint work with my advisor}
-    \centering
-    \includegraphics[height=0.75\textheight]{./figures/keith.jpg}
-    
-    Keith Levin \\
-    UW-Madison
-\end{frame}
-
-
-\begin{frame}{Linear-in-means model are popular models for understanding social influence}
-    Used widely in education, crime, health, social policy, etc \footnote{\cite{sacerdote2001, epple2011, soetevent2007, trogdon2008, duflo2003, bertrand2000, glaeser1996, patacchini2012a, carrell2013}, etc} \\
-    \vspace{6mm}
-    I'm interested in understanding this model but I don't necessarily endorse it
-\end{frame}
-
+\section{The linear-in-means model}
 
 \begin{frame}{Understanding social influence is fundamental in a highly connected society}
     
@@ -176,6 +160,12 @@
             }
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}{Linear-in-means model are popular models for understanding social influence}
+    Used widely in education, crime, health, social policy, etc \footnote{\cite{sacerdote2001, epple2011, soetevent2007, trogdon2008, duflo2003, bertrand2000, glaeser1996, patacchini2012a, carrell2013}, etc} \\
+    \vspace{6mm}
+    I'm interested in understanding this model but I don't necessarily endorse it
 \end{frame}
 
 \begin{frame}{Linear-in-means models are a canonical tool to estimate social influence}
@@ -597,7 +587,7 @@
 
 \begin{frame}{Minimax lower bounds show asymptotic collinearity can lead to inconsistency}
     
-    \begin{theorem}
+    \begin{theorem}[Hayes and Levin 2025]
         Let $\Theta_\mathrm{LIM}= \left\{ (\alpha,\beta,\gamma,\delta) : \alpha,\gamma,\delta \in \R, \beta \in (-1,1) \right\}$ and suppose that $\varepsilon \sim \mathcal N(0, \sigma^2 I)$. There exist positive constants $c_\beta,c_\delta$ and $c_0$, such that for sufficiently large $n$
         \begin{equation*} \label{eq:minimax:betadelta}
             \inf_{\widehat{\theta}} \sup_{\theta \in \Theta_\mathrm{LIM}}
@@ -637,7 +627,7 @@
     
     \vspace{2mm}
     
-    If $d_{\min}$ diverges, we cannot obtain parametric rates and if $d_{\min} = \omega(n)$, consistent estimation is impossible over $\Theta_\mathrm{LIM}$.
+    If $d_{\min}$ diverges, we cannot obtain parametric rates and if $d_{\min} = \Omega(n)$, consistent estimation is impossible over $\Theta_\mathrm{LIM}$.
     
 \end{frame}
 
@@ -667,8 +657,6 @@
     
 \end{frame}
 
-\section{Connections to ongoing work in the contagion literature}
-
 % \begin{frame}
 
 
@@ -684,6 +672,22 @@
 %         Direct effects are estimable even when there is asymptotic collinearity.
 %     \end{block}
 % \end{frame}
+
+\begin{frame}{Why hasn't the spatial econometrics literature encountered this issue before?}
+    Theory directly assumes there is no asymptotic collinearity \\
+    \vspace{3mm}
+    Simulations rarely investigate consistency of estimators \\
+    \vspace{3mm}
+    Often treat covariates $T$ and network $G$ as fixed rather than random \\
+    \vspace{6mm}
+    \footnotesize *Recent work has explicitly leveraged asymptotic collinearity in random graphs to estimate direct effects \citep{li2022f}
+\end{frame}
+
+\begin{frame}{The network designs literature is well-aware of issues with Bernoulli designs}
+    \vfill
+    \centering
+    \includegraphics[height=0.9\textheight, page=1, trim={1.5cm 4cm 2cm 5cm}, clip]{./papers/airoldi.pdf}
+\end{frame}
 
 \begin{frame}{The network designs literature is well-aware of issues with Bernoulli designs}
     \vfill
@@ -703,50 +707,7 @@
     \includegraphics[height=0.95\textheight, page=1, trim={1.5cm 9cm 0 3.5cm}, clip]{./papers/viviano-clustering.pdf}
 \end{frame}
 
-
-\begin{frame}{Why hasn't the spatial econometrics literature encountered this issue before?}
-    Theory directly assumes there is no asymptotic collinearity \\
-    \vspace{3mm}
-    Simulations rarely investigate consistency of estimators \\
-    \vspace{3mm}
-    Often treat covariates $T$ and network $G$ as fixed rather than random \\
-    \vspace{6mm}
-    \footnotesize *Recent work has explicitly leveraged asymptotic collinearity in random graphs to estimate direct effects \citep{li2022f}
-\end{frame}
-
-\begin{frame}{Parametric approaches remain important in settings with homophily}
-    \vspace{4mm}
-    \begin{columns}
-        \begin{column}{0.49\paperwidth}
-            \onslide<1->{
-                \centering
-                \includegraphics[height=\textheight, page=2, trim={5.8cm 4.1cm 1.5cm 3.5cm}, clip]{./papers/christakis.pdf}
-            }
-        \end{column}
-        \begin{column}{0.49\paperwidth}
-            \onslide<2->{
-                \centering
-                \includegraphics[height=\textheight, page=1, trim={1.5cm 4.5cm 0cm 2.2cm}, clip]{./papers/thomas.pdf}
-            }
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Differentiating homophily and contagion requires parametric assumptions}
-    \centering
-    \includegraphics[width=\textwidth, page=2, trim={1.5cm 16cm 0 3.3cm}, clip]{./papers/shalizi.pdf}
-    
-    Consequence: substantial interest in parametric approaches to peer effects
-\end{frame}
-
-
-\begin{frame}{Lots of current work on parametric peer effects in low-rank network models}
-    \centering
-    \includegraphics[height=0.95\textheight, page=1, trim={1.5cm 6cm 0 4cm}, clip]{./papers/paul.pdf}
-\end{frame}
-
-
-\section{A hint at a solution}
+\section{Dependence as a solution}
 
 \begin{frame}{Dependence between treatment and network might resolve collinearity issues}
     \Large
@@ -789,7 +750,7 @@
 \end{frame}
 
 \begin{frame}{We prove a partial asymptotic collinearity result for these models}
-    \begin{theorem}[\citealt{hayes2024c}]
+    \begin{theorem}[Hayes and Levin 2025]
         Suppose that $A$ is sampled from a degree-corrected stochastic blockmodel. Define $X_i = \theta_i Z_i$. Let 
         \begin{equation*}
             Y = \alpha 1_n + \beta G Y + X \gamma + G X \delta + \varepsilon
@@ -833,16 +794,58 @@
     \includegraphics[width=0.85\textwidth]{./figures/simulations/jobtalk-mse-all.pdf}
 \end{frame}
 
-% \begin{frame}
+\begin{frame}{Dependence prevented \textcolor{BrickRed}{asymptotic collinearity} and estimation challenges}
+    \large
+    1. Explicitly modelling dependence between nodal covariates and network structure can (partially) resolve asymptotic collinearity issues. \\
+    \vspace{6mm}
+    2. Treatments dependent on network must be considered on a case-by-case basis, considering both the treatment mechanism and the network model.
+\end{frame}
 
-%     \begin{block}{Takeaway 3}
-%         Explicitly modelling dependence between nodal covariates and network structure can aid identifiability and resolve asymptotic collinearity issues.
-%     \end{block}
-%     \vspace{4mm}
-%     \begin{block}{Takeaway 4}
-%         Treatments dependent on network must be considered on a case-by-case basis, considering both the treatment and the network model.
-%     \end{block}
-% \end{frame}
+\section{Why are folks parametric in 2025?}
+
+\begin{frame}{In social networks, peer effects often exist alongside homophily}
+    
+    \textbf{Interference}: your treatment impacts my outcome
+    
+    \textbf{Contagion}: your outcome impacts my outcome
+    
+    \vspace{8mm}
+    
+    \textbf{Homophily}: I am very similar to my friends
+\end{frame}
+
+\begin{frame}{In settings with homophily, parametric approaches remain important}
+    \vspace{4mm}
+    \begin{columns}
+        \begin{column}{0.49\paperwidth}
+            \onslide<1->{
+                \centering
+                \includegraphics[height=\textheight, page=2, trim={5.8cm 4.1cm 1.5cm 3.5cm}, clip]{./papers/christakis.pdf}
+            }
+        \end{column}
+        \begin{column}{0.49\paperwidth}
+            \onslide<2->{
+                \centering
+                \includegraphics[height=\textheight, page=1, trim={1.5cm 4.5cm 0cm 2.2cm}, clip]{./papers/thomas.pdf}
+            }
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Differentiating homophily and contagion might require parametrics}
+    \centering
+    \includegraphics[width=\textwidth, page=2, trim={1.5cm 16cm 0 3.3cm}, clip]{./papers/shalizi.pdf}
+    
+    Consequence: substantial interest in parametric models of peer effects
+\end{frame}
+
+
+\begin{frame}{Lots of current work on parametric peer effects in low-rank network models}
+    \centering
+    \includegraphics[height=0.95\textheight, page=1, trim={1.5cm 6cm 0 4cm}, clip]{./papers/paul.pdf}
+\end{frame}
+
+
 
 \section{Follow-up work}
 
@@ -902,8 +905,8 @@
 
 \appendix
 
-\begin{frame}{A formal definition for identifiability}
-    \begin{definition}[\citealt{maclaren2020a}]
+\begin{frame}{Identifiability}
+    \begin{definition}
         A model $\mathcal M = \{ P_\theta : \theta \in \Theta \}$ is a collection of probability measures $P_\theta$, indexed by a set $\Theta$. A parameter $q(\theta)$ is \emph{identifiable} if and only if $q(\theta_1) \neq q(\theta_2)$ implies $P_{\theta_1} \neq P_{\theta_2}$.
     \end{definition}
 \end{frame}
