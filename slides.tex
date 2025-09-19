@@ -579,6 +579,20 @@
     \end{theorem}
 \end{frame}
 
+\begin{frame}{This result covers weighted and directed networks}
+    \textbf{Weighted networks}: If $A \in \R^{n \times n}_{\ge 0}$ is a positive, weighted network with $(\nu, b)$-subgamma edges $A_{ij}$, we require that
+    \begin{equation*}
+        \max_{i \in [n]} \frac{1}{d_i^2} \sum_{j=1}^n A_{ij}^2
+        = o\left( \frac{ 1 }{ \nu \log^2 n } \right)
+        ~\text{ and }~
+        \max_{j \in [n]} \frac{ A_{ij} }{ d_i }
+        = o\left( \frac{ 1 }{ b \log n } \right).
+    \end{equation*} \\
+    Roughly: no one edge can be too important for a given node \\
+    \vspace{4mm}
+    \textbf{Directed networks}: extension possible, but slightly more involved
+\end{frame}
+
 \begin{frame}{Collinearity shows up quickly in finite samples}
     \vspace{3mm}
     \centering
@@ -615,7 +629,7 @@
     
     In binary networks, $\| G \|_F = \sqrt{n/\bar{d}_{\text{har}}}$, where $\displaystyle \bar{d}_{\text{har}} = \frac{n}{\sum_{i=1}^n 1/d_i}$.
     
-    \vspace{4mm}
+    \vspace{3mm}
     
     Since the harmonic mean is lower bounded by the minimum, we have:
     
@@ -627,25 +641,12 @@
     
     \vspace{2mm}
     
-    If $d_{\min}$ diverges, we cannot obtain parametric rates and if $d_{\min} = \Omega(n)$, consistent estimation is impossible over $\Theta_\mathrm{LIM}$.
+    If $d_{\min}$ diverges, we cannot obtain parametric rates and if $d_{\min} = \Omega(n)$, consistent estimation is impossible over $\Theta_\mathrm{LIM}$.$^*$ \\
+    \vspace{4mm}
+    \footnotesize$^*$ A vanishing fraction of nodes may have bounded degree, since bound is actually in $\bar{d}_{\text{har}}$
     
 \end{frame}
 
-\begin{frame}{Our theory covers weighted and directed networks}
-    \textbf{Weighted networks}: If $A \in \R^{n \times n}_{\ge 0}$ is a positive, weighted network with $(\nu, b)$-subgamma edges $A_{ij}$, we require that
-    \begin{equation*}
-        \max_{i \in [n]} \frac{1}{d_i^2} \sum_{j=1}^n A_{ij}^2
-        = o\left( \frac{ 1 }{ \nu \log^2 n } \right)
-        ~\text{ and }~
-        \max_{j \in [n]} \frac{ A_{ij} }{ d_i }
-        = o\left( \frac{ 1 }{ b \log n } \right).
-    \end{equation*} \\
-    Roughly: no one edge can be too important for a given node \\
-    \vspace{4mm}
-    \textbf{Directed networks}: extension possible, but slightly more involved \\
-    \vspace{4mm}
-    \textbf{Isolated nodes}: can allow a vanishing fraction of nodes to be isolated
-\end{frame}
 
 
 \begin{frame}{The standard wisdom about linear-in-means model is incomplete}
